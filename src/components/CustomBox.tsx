@@ -1,24 +1,25 @@
 import styled from "styled-components";
 
 interface CustomBoxProps {
-	$width?: string;
-	$height?: string;
-	$gap?: string;
-	$display?: string;
-	$flexdirection?: string;
-	$alignitems?: string;
-	$justifycontent?: string;
-	$margin?: string;
-	$margintop?: string;
-	$padding?: string;
-	$backgroundcolor?: string;
-	$color?: string;
-	$border?: string;
-	$borderradius?: string;
-	$overflowy?: string;
-	$overflowx?: string;
-	$zindex?: string;
-	$boxshadow?: string;
+  $width?: string;
+  $height?: string;
+  $gap?: string;
+  $display?: string;
+  $flexdirection?: string;
+  $alignitems?: string;
+  $justifycontent?: string;
+  $margin?: string;
+  $margintop?: string;
+  $padding?: string;
+  $backgroundcolor?: string;
+  $color?: string;
+  $border?: string;
+  $borderradius?: string;
+  $overflowy?: string;
+  $overflowx?: string;
+  $zindex?: string;
+  $boxshadow?: string;
+  $minHeight?: string;
 }
 
 const CustomBox = styled.div<CustomBoxProps>`
@@ -40,7 +41,7 @@ const CustomBox = styled.div<CustomBoxProps>`
   overflow-y: ${(props) => props.$overflowy || "auto"};
   z-index: ${(props) => props.$zindex || '3'};
   box-shadow: ${(props) => props.$boxshadow || "none"};
-
+  min-height: ${(props) => props.$minHeight || "10rem"};
 
   /* 스크롤바 스타일 */
   &::-webkit-scrollbar {
