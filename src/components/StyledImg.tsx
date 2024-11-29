@@ -17,7 +17,7 @@ const StyledImg = styled.img<StyledImgProps>`
   padding: ${(props) => props.$padding || '0'};
   border-radius: ${(props) => props.$borderradius || '0'};
   border: ${(props) => props.$border || 'none'};
-  cursor: ${(props) => props.$cursor || 'none'};
+  cursor: ${(props) => props.$cursor || 'auto'};
 `;
 
 export default StyledImg;

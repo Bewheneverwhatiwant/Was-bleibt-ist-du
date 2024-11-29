@@ -1,0 +1,15 @@
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* 스크롤바 트랙과 스크롤바 자체를 제거 */
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+/* 스크롤바가 없어도 스크롤이 작동하도록*/
+.no-scrollbar {
+	overflow-y: scroll;
+	overflow-x: scroll;
+}

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { ReactNode, CSSProperties } from "react";
 
 interface CustomBoxProps {
   $width?: string;
@@ -20,11 +21,13 @@ interface CustomBoxProps {
   $zindex?: string;
   $boxshadow?: string;
   $minHeight?: string;
+  children?: ReactNode;
+  style?: CSSProperties;
 }
 
-const CustomBox = styled.div<CustomBoxProps>`
+const StyledCustomBox = styled.div<CustomBoxProps>`
   width: ${(props) => props.$width || "100%"};
-  height: ${(props) => props.$height || "5rem"};
+  height: ${(props) => props.$height || "auto"};
   gap: ${(props) => props.$gap || "1rem"};
   display: ${(props) => props.$display || "flex"};
   flex-direction: ${(props) => props.$flexdirection || 'column'};
@@ -37,8 +40,7 @@ const CustomBox = styled.div<CustomBoxProps>`
   color: ${(props) => props.color || "black"};
   border: ${(props) => props.$border || "none"};
   border-radius: ${(props) => props.$borderradius || "0.5rem"};
-  overflow-x: ${(props) => props.$overflowx || "auto"};
-  overflow-y: ${(props) => props.$overflowy || "auto"};
+  overflow: visible;
   z-index: ${(props) => props.$zindex || '3'};
   box-shadow: ${(props) => props.$boxshadow || "none"};
   min-height: ${(props) => props.$minHeight || "10rem"};
@@ -59,5 +61,14 @@ const CustomBox = styled.div<CustomBoxProps>`
   }
 
 `;
+
+const CustomBox = React.forwardRef<HTMLDivElement, CustomBoxProps>((props, ref) => {
+  const { children, style, ...rest } = props; // style 및 children 분리
+  return (
+    <StyledCustomBox ref={ref} style={style} {...rest}>
+      {children}
+    </StyledCustomBox>
+  );
+});
 
 export default CustomBox;
