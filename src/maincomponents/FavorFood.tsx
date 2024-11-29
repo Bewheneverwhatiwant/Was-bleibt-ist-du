@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import Modal from '../components/Modal.tsx';
 import CustomColumn from '../components/CustomColumn.tsx';
 import CustomRow from '../components/CustomRow.tsx';
 import CustomFont from '../components/CustomFont.tsx';
@@ -5,6 +8,11 @@ import StyledImg from '../components/StyledImg.tsx';
 import CustomButton from '../components/CustomButton.tsx';
 
 function FavorFood() {
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModal = () => setIsModalOpen(true);
+	const closeModal = () => setIsModalOpen(false);
 
 	return (
 
@@ -14,7 +22,7 @@ function FavorFood() {
 			</CustomRow>
 			<CustomRow $width='100%' $height='auto' $alignitems='center' $justifycontent='space-between'>
 				<StyledImg src={'Banner_Food.svg'} $width='70%' />
-				<CustomButton $backgroundColor='transparent' $width='30%' $height='auto' $padding='0'>
+				<CustomButton $backgroundColor='transparent' $width='30%' $height='auto' $padding='0' onClick={openModal}>
 					<StyledImg src={'Banner_refrig.svg'} $width='100%' />
 				</CustomButton>
 			</CustomRow>
@@ -22,6 +30,8 @@ function FavorFood() {
 			<CustomButton $backgroundColor='transparent' $width='90%' $height='auto' $padding='0'>
 				<StyledImg src={'Banner_FavorList.svg'} $width='100%' />
 			</CustomButton>
+
+			<Modal isOpen={isModalOpen} onClose={closeModal} />
 		</CustomColumn>
 	);
 }
