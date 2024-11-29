@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Modal from '../components/Modal.tsx';
+import Modal_Map from '../components/Modal_Map.tsx';
 import CustomColumn from '../components/CustomColumn.tsx';
 import CustomRow from '../components/CustomRow.tsx';
 import CustomFont from '../components/CustomFont.tsx';
@@ -10,9 +11,13 @@ import CustomButton from '../components/CustomButton.tsx';
 function FavorFood() {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isMapModalOpen, setIsMapModalOpen] = useState(false);
 
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
+
+	const openMapModal = () => setIsMapModalOpen(true);
+	const closeMapModalOpen = () => setIsMapModalOpen(false);
 
 	return (
 
@@ -27,11 +32,12 @@ function FavorFood() {
 				</CustomButton>
 			</CustomRow>
 
-			<CustomButton $backgroundColor='transparent' $width='90%' $height='auto' $padding='0'>
+			<CustomButton $backgroundColor='transparent' $width='90%' $height='auto' $padding='0' onClick={openMapModal}>
 				<StyledImg src={'Banner_FavorList.svg'} $width='100%' />
 			</CustomButton>
 
 			<Modal isOpen={isModalOpen} onClose={closeModal} />
+			<Modal_Map isOpen={isMapModalOpen} onClose={closeMapModalOpen} />
 		</CustomColumn>
 	);
 }
