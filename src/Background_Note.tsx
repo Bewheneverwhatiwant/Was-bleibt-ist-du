@@ -1,9 +1,8 @@
 import './RecetCss.tsx';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import CustomColumn from './components/CustomColumn.tsx';
-import CustomBox from './components/CustomBox.tsx';
-import CustomFont from './components/CustomFont.tsx';
+
+import Footer from './maincomponents/Footer.tsx';
 
 const Wrapper = styled.div`
   position: relative;
@@ -46,7 +45,7 @@ const Background_Note: React.FC<BackgroundNoteProps> = ({ children, contentHeigh
 
 	useEffect(() => {
 		const updateImages = () => {
-			const imageHeight = 60; // 각 이미지의 높이(px)
+			const imageHeight = 60; // 스프링 이미지 높이
 
 			// contentHeight / 이미지 높이로 필요한 이미지 수 계산
 			const requiredImagesCount = Math.ceil(contentHeight / imageHeight);
@@ -70,13 +69,7 @@ const Background_Note: React.FC<BackgroundNoteProps> = ({ children, contentHeigh
 				</AbsoluteImageContainer>
 				{children}
 			</Wrapper>
-			<CustomBox $width='100%' $height='5rem' $backgroundcolor='#666666' $alignitems='center' $justifycontent='center' $borderradius='0'>
-				<CustomColumn $width='100$' $height='auto' $alignitems='center' $justifycontent='center'>
-					<CustomFont $color='#D9D9D9' $font='1rem'>
-						Life is a maze, and love is a riddle.
-					</CustomFont>
-				</CustomColumn>
-			</CustomBox>
+			<Footer />
 		</>
 	);
 };
