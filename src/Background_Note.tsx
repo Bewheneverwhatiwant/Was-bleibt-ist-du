@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background-color: #422A07;
+  background-color: #B2D1E7;
 `;
 
 const AbsoluteImageContainer = styled.div`
@@ -64,7 +64,7 @@ const Background_Note: React.FC<BackgroundNoteProps> = ({ children, contentHeigh
 			<Wrapper>
 				<AbsoluteImageContainer>
 					{images.map((_, index) => (
-						<StyledImage key={index} src={'component_spring.svg'} />
+						<StyledImage key={index} src={'icon_spring_2.svg'} />
 					))}
 				</AbsoluteImageContainer>
 				{children}

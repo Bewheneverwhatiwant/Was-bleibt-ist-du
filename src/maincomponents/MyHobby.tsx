@@ -12,7 +12,7 @@ function MyHobby() {
 				<CustomFont $color='black' $font='1rem'>2. 취미는...</CustomFont>
 			</CustomRow>
 			<CustomRow $width='100%' $height='auto' $alignitems='center' $justifycontent='space-between'>
-				<StyledImg src={'Banner_Hobby.svg'} $width='60%' />
+				<StyledImg src={'Banner_Hobby_2.svg'} $width='60%' />
 				<StyledImg src={'Banner_Hobby_Shelf.svg'} $width='40%' />
 			</CustomRow>
 		</CustomColumn>

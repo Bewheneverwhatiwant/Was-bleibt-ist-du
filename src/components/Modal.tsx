@@ -1,5 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
+import ReactPortal from './ReactPortal';
 
 import CustomFont from './CustomFont';
 import CustomColumn from './CustomColumn';
@@ -46,23 +47,25 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 	if (!isOpen) return null;
 
 	return (
-		<ModalOverlay onClick={onClose}>
-			<ModalContainer onClick={(e) => e.stopPropagation()}>
-				<CustomColumn $width='100%' $alignitems='flex-start' $justifycontent='center' $gap='1.5rem'>
-					<CustomRow $width='100%' $alignitems='center' $justifycontent='center'>
-						<CustomFont $color='black' $font='1.2rem' $fontweight='bold'>MEMO</CustomFont>
-					</CustomRow>
+		<ReactPortal>
+			<ModalOverlay onClick={onClose}>
+				<ModalContainer onClick={(e) => e.stopPropagation()}>
+					<CustomColumn $width='100%' $alignitems='flex-start' $justifycontent='center' $gap='1.5rem'>
+						<CustomRow $width='100%' $alignitems='center' $justifycontent='center'>
+							<CustomFont $color='black' $font='1.2rem' $fontweight='bold'>MEMO</CustomFont>
+						</CustomRow>
 
-					<CustomColumn $width='100%' $alignitems='center' $justifycontent='center' $gap='0.5rem'>
-						<CustomFont $color='black' $font='0.8rem'>꾸덕한 오리지널 짜빠게티</CustomFont>
-						<CustomFont $color='black' $font='0.8rem'>구운 베이컨 반찬</CustomFont>
-						<CustomFont $color='black' $font='0.8rem'>구운 새송이버섯 반찬</CustomFont>
-						<CustomFont $color='black' $font='0.8rem'>삼겹살, 김치, 된장찌개, 공기밥</CustomFont>
-						<CustomFont $color='black' $font='0.8rem'>마라탕(유부 필수)</CustomFont>
+						<CustomColumn $width='100%' $alignitems='center' $justifycontent='center' $gap='0.5rem'>
+							<CustomFont $color='black' $font='0.8rem'>꾸덕한 오리지널 짜빠게티</CustomFont>
+							<CustomFont $color='black' $font='0.8rem'>구운 베이컨 반찬</CustomFont>
+							<CustomFont $color='black' $font='0.8rem'>구운 새송이버섯 반찬</CustomFont>
+							<CustomFont $color='black' $font='0.8rem'>삼겹살, 김치, 된장찌개, 공기밥</CustomFont>
+							<CustomFont $color='black' $font='0.8rem'>마라탕(유부 필수)</CustomFont>
+						</CustomColumn>
 					</CustomColumn>
-				</CustomColumn>
-			</ModalContainer>
-		</ModalOverlay>
+				</ModalContainer>
+			</ModalOverlay>
+		</ReactPortal>
 	);
 };
 

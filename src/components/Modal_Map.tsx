@@ -1,5 +1,6 @@
 import React, { MouseEventHandler, useState, useEffect } from 'react';
 import styled from 'styled-components';
+import ReactPortal from './ReactPortal';
 
 import CustomFont from './CustomFont';
 import CustomColumn from './CustomColumn';
@@ -22,9 +23,13 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalContainer = styled.div`
-    background-color: white;
-    width: 70%;
-    height: auto;
+	background-color: transparent;
+	background-image: url('icon_big_postit.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 320px;
+	height: 600px;
 	padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -55,20 +60,20 @@ const Modal_Map: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 	if (!isOpen) return null;
 
 	return (
-		<ModalOverlay onClick={onClose}>
-			<ModalContainer onClick={(e) => e.stopPropagation()}>
-				<CustomColumn $width="100%" $alignitems="flex-start" $justifycontent="center" $gap="1.5rem">
-					<CustomRow $width="100%" $alignitems="center" $justifycontent="center">
-						<CustomFont $color="black" $font="1.2rem" $fontweight="bold">
-							MEMO
-						</CustomFont>
-					</CustomRow>
-
-
-					<KakaoMap />
-				</CustomColumn>
-			</ModalContainer>
-		</ModalOverlay>
+		<ReactPortal>
+			<ModalOverlay onClick={onClose}>
+				<ModalContainer onClick={(e) => e.stopPropagation()}>
+					<CustomColumn $width="100%" $height='100%' $alignitems="center" $justifycontent="flex-end" $gap="2rem">
+						<CustomRow $width="100%" $alignitems="center" $justifycontent="center">
+							<CustomFont $color="black" $font="1.2rem" $fontweight="bold">
+								MEMO
+							</CustomFont>
+						</CustomRow>
+						<KakaoMap />
+					</CustomColumn>
+				</ModalContainer>
+			</ModalOverlay>
+		</ReactPortal>
 	);
 };
 

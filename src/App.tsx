@@ -44,7 +44,8 @@ function App() {
     <Background_Note contentHeight={contentHeight}>
       <CustomBox
         ref={customBoxRef}
-        $backgroundcolor="#B6AA9F"
+        // $backgroundcolor="#B6AA9F"
+        $backgroundimage='back4.svg'
         $width="95%"
         $height='auto'
         $alignitems="flex-start"
